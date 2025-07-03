@@ -1,20 +1,49 @@
 // src/pages/About.jsx
 import React from "react";
+import { motion } from "framer-motion";
+import myPic from "../assets/vishall.jpg"; // <-- yaha apni image ka path de
+
 
 export default function About() {
   return (
-    <section className="min-h-screen px-4 py-10 bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4">About Me</h2>
-        <p className="text-lg mb-4">
-          I'm Vishal from Bihar, a self-taught Frontend Developer passionate about building clean and responsive web applications using HTML, CSS, JavaScript, and React.
-        </p>
-        <p className="text-lg mb-4">
-          I'm currently learning advanced React, TypeScript, and UI/UX design to level up my frontend skills.
-        </p>
-        <p className="text-lg font-medium">
-          🎯 Fun Fact: I can turn chai and code into magic!
-        </p>
+    <section id="about" className="min-h-screen px-4 py-16 bg-white dark:bg-gray-900 text-gray-800 dark:text-white">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        {/* Image */}
+        <motion.img
+          src={myPic}
+          alt="vishal.jpg"
+          className="w-60 h-60 object-cover rounded-full shadow-lg border-4 border-purple-500"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        />
+
+        {/* Text */}
+        <motion.div
+          className="text-center md:text-left max-w-xl"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          <h2 className="text-4xl font-bold mb-6 text-purple-700 dark:text-purple-400">
+            About Me
+          </h2>
+          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            I'm Vishal from Bihar, a self-taught Frontend Developer.  
+            I enjoy building websites, creating clean designs, and crafting responsive layouts.  
+            <br /><br />
+            I have learned HTML, CSS, JavaScript, and React by myself.  
+            I'm passionate about learning new things every day and love solving real-world problems through good UI/UX.
+          </p>
+          <a
+  href="/Vishal-Resume.pdf"  // ye resume file public folder mein hona chahiye
+  download
+  className="mt-4 inline-block bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded shadow"
+>
+  📄 Download Resume
+</a>
+
+        </motion.div>
       </div>
     </section>
   );

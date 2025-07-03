@@ -3,7 +3,7 @@ import { FaReact, FaGitAlt, FaBootstrap } from "react-icons/fa";
 import { SiJavascript, SiTailwindcss, SiPython, SiCplusplus, SiC, SiOpenai } from "react-icons/si";
 import { DiGithubBadge } from "react-icons/di";
 import { motion } from "framer-motion";
-
+import FadeInWrapper from "../components/FadeInWrapper";
 
 const frontendSkills = [
   { name: "HTML", icon: <SiJavascript size={30} className="text-orange-500" /> },
@@ -26,23 +26,28 @@ const otherSkills = [
 
 export default function Skills() {
   return (
-    <section className="min-h-screen px-4 py-10 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
+    <section id="skills" className="min-h-screen px-4 py-10 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
       <div className="max-w-6xl mx-auto space-y-10">
+             <FadeInWrapper>
         <h2 className="text-4xl font-bold text-center mb-4">My Skills</h2>
+          </FadeInWrapper>
 
         {/* Frontend Section */}
         <div className="bg-gray-800 text-orange-300 p-6 rounded-xl shadow-lg">
+  <FadeInWrapper>
+
           <h3 className="text-2xl font-semibold flex items-center gap-2">
             <FaReact className="text-orange-400" /> Frontend
           </h3>
+  </FadeInWrapper>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
             {frontendSkills.map(({ name, icon }, index) => (
-            <motion.div
+              <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md transition flex flex-col items-center justify-center"
-            >
+              >
               <div className="text-4xl mb-3">{icon}</div>
               <p className="text-center font-medium">{name}</p>
             </motion.div>

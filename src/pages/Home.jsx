@@ -4,26 +4,29 @@ import { AiOutlineArrowDown } from "react-icons/ai";
 import { FaReact, FaGitAlt, FaBootstrap } from "react-icons/fa";
 import { SiJavascript, SiTailwindcss, SiHtml5, SiCss3, SiPython, SiCplusplus, SiOpenai } from "react-icons/si";
 import { DiGithubBadge } from "react-icons/di";
+import FadeInWrapper from "../components/FadeInWrapper";
+
 
 export default function Home() {
   return (
     
-    <section className=" pt-20 min-h-screen bg-gradient-to-r from-gray-900 to-gray-800 text-white px-4 py-10 flex flex-col items-center justify-center pt-20">
+    <section id="home" className=" pt-20 min-h-screen bg-gradient-to-r from-gray-900 to-gray-800 text-white px-4 py-10 flex flex-col items-center justify-center pt-20">
       <div className="absolute bottom-6">
         <AiOutlineArrowDown className="text-3xl animate-bounce text-white" />
       </div>
       <div className="max-w-5xl w-full text-center flex flex-col items-center space-y-6">
         {/* Profile Photo */}
         <img
-          src="/vishal.jpg"
+          src="/vishall.jpg"
           alt="Vishal"
           className="w-40 h-40 rounded-full object-cover border-4 border-purple-500 shadow-lg"
         />
-
+<FadeInWrapper delay={0.2}>
         <h1 className="text-4xl font-bold">Hi, I'm Vishal</h1>
         <p className="text-lg max-w-2xl">
           A passionate Frontend Developer from Bihar. I love turning ideas into beautiful, responsive websites.
         </p>
+        </FadeInWrapper>
 
         {/* Resume Button */}
         <a
