@@ -1,2 +1,1 @@
-
-https://vishalportfolio-s.netlify.app
+https://vishal-s.netlify.app/
