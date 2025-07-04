@@ -1,0 +1,28 @@
+/* .body-white, .body-dark {
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+
+.body-white {
+  background-color: white;
+  color: black;
+  transition: all 0.3s;
+}
+
+.body-dark {
+  background-color: #181818;
+  color: white;
+  transition: all 0.3s;
+}
+
+.toggle-btn {
+  padding: 8px 16px;
+  margin-top: 10px;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+} */

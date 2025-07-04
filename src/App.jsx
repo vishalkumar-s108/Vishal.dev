@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import BackToTop from "./components/Backtoback";
-// App.jsx
 import Testimonials from "./components/Testimonials";
 import Skills from "./pages/Skills";
 import Home from "./pages/Home";
@@ -9,12 +8,11 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Blog from "./pages/Blog";
+
 function App() {
   return (
     <>
-   <Testimonials />
-
-
+      <Testimonials /> {/* Corrected here */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -24,7 +22,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
       </Routes>
-        <BackToTop/>
+      <BackToTop />
     </>
   );
 }
