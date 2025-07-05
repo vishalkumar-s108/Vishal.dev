@@ -1,4 +1,6 @@
 // src/components/FadeInWrapper.jsx
+import React from "react";
+
 import { motion } from "framer-motion";
 
 export default function FadeInWrapper({ children, delay = 0.1 }) {

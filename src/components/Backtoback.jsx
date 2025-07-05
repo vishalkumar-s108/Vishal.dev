@@ -1,3 +1,4 @@
+ import React from "react";
 // src/components/BackToTop.jsx
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
