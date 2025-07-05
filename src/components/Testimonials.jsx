@@ -2,21 +2,24 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaQuoteLeft } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
-const testimonials = [
-  {
-    name: "",
-    role: "",
-    message: "Vishal is a dedicated and talented developer. His attention to UI/UX is impressive.",
-  },
-  {
-    name: "",
-    role: "",
-    message: "He consistently delivered great work during our mentorship. Highly recommend him!",
-  },
-];
+const Testimonials = () => {
+  const { t } = useTranslation();
 
-export default function Testimonials() {
+  const testimonials = [
+    {
+      name: t("testimonials.items.0.name"),
+      role: t("testimonials.items.0.role"),
+      message: t("testimonials.items.0.message"),
+    },
+    {
+      name: t("testimonials.items.1.name"),
+      role: t("testimonials.items.1.role"),
+      message: t("testimonials.items.1.message"),
+    },
+  ];
+
   return (
     <section
       id="testimonials"
@@ -30,7 +33,7 @@ export default function Testimonials() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          Testimonials
+          {t("testimonials.title")}
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -53,4 +56,6 @@ export default function Testimonials() {
       </div>
     </section>
   );
-}
+};
+
+export default Testimonials;

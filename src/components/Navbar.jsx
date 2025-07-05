@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
@@ -23,7 +25,19 @@ export default function Navbar() {
     }
   }, [darkMode]);
 
-  const navItems = ["Home", "About", "Skills", "Projects", "Blog", "Contact"];
+ const navItems = [
+  { path: "", label: t("navbar.home") },
+  { path: "about", label: t("navbar.about") },
+  { path: "skills", label: t("navbar.skills") },
+  { path: "projects", label: t("navbar.projects") },
+  { path: "blog", label: t("navbar.blog") },
+  { path: "contact", label: t("navbar.contact") },
+  { path: "resume", label: t("Resume") },
+{ path: "Nda-projects", label: t("NdaProjects") },
+{ path: "playground", label: t("Playground") }
+
+];
+
 
   return (
     <nav className="bg-gradient-to-r from-purple-700 to-purple-500 text-white shadow-md fixed top-0 left-0 w-full z-50">
@@ -46,21 +60,38 @@ export default function Navbar() {
               className="text-lg"
             >
               <Link
-                to={`/${item === "Home" ? "" : item.toLowerCase()}`}
+                to={`/${item.path}`}
                 className="hover:text-yellow-300 transition duration-200"
               >
-                {item}
+                {item.label}
               </Link>
             </motion.div>
           ))}
 
-          {/* Dark/Light Toggle */}
+          {/* 🌙 Dark/Light Toggle */}
           <button
             onClick={() => setDarkMode(!darkMode)}
             className="ml-4 px-3 py-1 rounded bg-white text-black dark:bg-black dark:text-white border transition"
           >
-            {darkMode ? "\uD83C\uDF19 Dark" : "\u2600\uFE0F Light"}
+          {darkMode ? t("navbar.dark") : t("navbar.light")}
+
           </button>
+
+          {/* 🌐 Language Switcher */}
+          <div className="ml-4 flex gap-2">
+            <button
+              onClick={() => i18n.changeLanguage("en")}
+              className="text-sm px-2 py-1 rounded bg-white text-black dark:bg-gray-900 dark:text-white hover:bg-gray-200"
+            >
+              EN
+            </button>
+            <button
+              onClick={() => i18n.changeLanguage("hi")}
+              className="text-sm px-2 py-1 rounded bg-white text-black dark:bg-gray-900 dark:text-white hover:bg-gray-200"
+            >
+              हिंदी
+            </button>
+          </div>
         </div>
 
         {/* Mobile Toggle Button */}
@@ -71,7 +102,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* 📱 Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -83,21 +114,37 @@ export default function Navbar() {
             {navItems.map((item, i) => (
               <Link
                 key={i}
-                to={`/${item === "Home" ? "" : item.toLowerCase()}`}
+                to={`/${item.path}`}
                 onClick={() => setIsOpen(false)}
                 className="block text-white text-lg hover:text-yellow-300"
               >
-                {item}
+                {item.label}
               </Link>
             ))}
 
-            {/* Mobile Dark Mode Toggle */}
+            {/* 🌙 Mobile Dark Mode Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="w-full px-3 py-2 rounded bg-white text-black dark:bg-black dark:text-white border mt-4 transition"
             >
-              {darkMode ? "\uD83C\uDF19 Dark" : "\u2600\uFE0F Light"}
+              {darkMode ? "🌙 Dark" : "☀️ Light"}
             </button>
+
+            {/* 🌐 Language Switcher for Mobile */}
+            <div className="flex justify-center gap-4 mt-4">
+              <button
+                onClick={() => i18n.changeLanguage("en")}
+                className="text-sm px-3 py-1 rounded bg-white text-black dark:bg-gray-900 dark:text-white hover:bg-gray-200"
+              >
+                EN
+              </button>
+              <button
+                onClick={() => i18n.changeLanguage("hi")}
+                className="text-sm px-3 py-1 rounded bg-white text-black dark:bg-gray-900 dark:text-white hover:bg-gray-200"
+              >
+                हिंदी
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

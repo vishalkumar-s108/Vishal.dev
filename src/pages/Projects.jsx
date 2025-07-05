@@ -3,42 +3,44 @@ import ProjectCard from "../components/ProjectCard";
 import { FaReact } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 // 🔹 Project Data
 const projects = [
   {
     id: 1,
-    title: "Portfolio Website",
+    title: "projects.portfolioTitle",
     image: "/image.png",
-    description: "My personal portfolio built using React and Tailwind CSS.",
+    description: "projects.portfolioDesc",
     github: "https://github.com/vishalkumar-s108",
     live: "https://prismatic-fenglisu-bb6d14.netlify.app/",
     tech: [FaReact, SiTailwindcss],
     tags: ["Frontend"],
-    role: "Designed and developed the complete frontend using React and Tailwind CSS.",
+    role: "projects.portfolioRole",
   },
   {
     id: 2,
-    title: "Taskify",
+    title: "projects.taskifyTitle",
     image: "/Taskify.png",
-    description: "A frontend task manager app.",
+    description: "projects.taskifyDesc",
     github: "https://github.com/vishalkumar-s108",
     live: "https://taskifynetlifyapp.netlify.app/",
     tech: [FaReact],
     tags: ["Frontend"],
-    role: "Built UI components and task management flow using React hooks.",
+    role: "projects.taskifyRole",
   },
 ];
 
-// 🔹 Main Component
 const Projects = () => {
+  const { t } = useTranslation();
   const [selectedTag, setSelectedTag] = useState("All");
 
-  // 🔸 Filter logic
   const filteredProjects =
     selectedTag === "All"
       ? projects
       : projects.filter((project) => project.tags.includes(selectedTag));
+
+  const tags = ["All", "Frontend", "Fullstack"];
 
   return (
     <section id="projects" className="py-16 px-4 bg-gray-900 text-white min-h-screen">
@@ -49,7 +51,7 @@ const Projects = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        Projects
+        {t("projects.title")}
       </motion.h2>
 
       {/* 🔹 Filter Buttons */}
@@ -60,7 +62,7 @@ const Projects = () => {
         transition={{ delay: 0.2, duration: 0.6 }}
         viewport={{ once: true }}
       >
-        {['All', 'Frontend', 'Fullstack'].map((tag) => (
+        {tags.map((tag) => (
           <button
             key={tag}
             onClick={() => setSelectedTag(tag)}
@@ -68,7 +70,7 @@ const Projects = () => {
               ${selectedTag === tag ? 'bg-blue-600 text-white' : 'bg-white text-gray-800'}
               hover:bg-blue-700 hover:text-white`}
           >
-            {tag}
+            {t(`projects.tags.${tag.toLowerCase()}`)}
           </button>
         ))}
       </motion.div>
@@ -82,7 +84,13 @@ const Projects = () => {
         viewport={{ once: true }}
       >
         {filteredProjects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
+          <ProjectCard
+            key={index}
+            {...project}
+            title={t(project.title)}
+            description={t(project.description)}
+            role={t(project.role)}
+          />
         ))}
       </motion.div>
     </section>

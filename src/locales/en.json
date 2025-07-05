@@ -1,0 +1,115 @@
+{
+  "about": {
+    "title": "About Me",
+    "description": "Hi, I'm Vishal Kumar, a passionate frontend developer based in Bihar, India."
+  },
+  "projects": {
+    "title": "My Projects",
+    "tags": {
+      "all": "All",
+      "frontend": "Frontend",
+      "fullstack": "Fullstack"
+    },
+    "portfolioTitle": "Portfolio Website",
+    "portfolioDesc": "My personal portfolio built using React and Tailwind CSS.",
+    "portfolioRole": "Designed and developed the complete frontend using React and Tailwind CSS.",
+    "taskifyTitle": "Taskify",
+    "taskifyDesc": "A frontend task manager app.",
+    "taskifyRole": "Built UI components and task management flow using React hooks."
+  },
+  "skills": {
+    "title": "Skills",
+    "frontend": "Frontend",
+    "others": "Other Tools & Skills",
+    "githubStats": "GitHub Stats",
+    "items": {
+      "html": "HTML",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "react": "React",
+      "git": "Git",
+      "tailwindcss": "TailwindCSS",
+      "github": "GitHub",
+      "python (basic)": "Python (Basic)",
+      "c++ (basic)": "C++ (Basic)",
+      "c (basic)": "C (Basic)",
+      "bootstrap": "Bootstrap",
+      "chatgpt": "ChatGPT"
+    }
+  },
+  "blog": {
+    "title": "Blog / Insights",
+    "posts": {
+      "portfolio": {
+        "title": "🔧 How I Built My Portfolio",
+        "content": "I used React 19, Tailwind CSS, Framer Motion, and deployed on Netlify. Here’s how I approached the layout, animations, and responsiveness..."
+      },
+      "learning": {
+        "title": "📚 What I'm Learning Now",
+        "content": "Currently diving deeper into TypeScript, APIs, and building full-stack MERN projects. Also exploring UI/UX best practices."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Me",
+    "thanks": "Thanks! I'll get back to you soon.",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "messagePlaceholder": "Your Message",
+    "submitButton": "Send Message",
+    "reachOut": "Or reach me directly:",
+    "errorEmpty": "Please fill all fields.",
+    "errorEmail": "Please enter a valid email."
+  },
+  "home": {
+    "greeting": "Hi, I'm",
+    "name": "Vishal",
+    "description": "A passionate Frontend Developer from Bihar. I love turning ideas into beautiful, responsive websites.",
+    "resume": "📄 Download Resume",
+    "timeline": "📌 View Timeline",
+    "frontendSkills": "Frontend Skills",
+    "otherSkills": "Other Skills"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact",
+    "light": "☀️ Light",
+    "dark": "🌙 Dark"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "items": {
+      "0": {
+        "name": "Shubham Kumar",
+        "role": "Senior UI/UX Designer at XYZ",
+        "message": "Vishal is a dedicated and talented developer. His attention to UI/UX is impressive."
+      },
+      "1": {
+        "name": "Shuvashis Pyne",
+        "role": "Mentor, Coding Bootcamp",
+        "message": "He consistently delivered great work during our mentorship. Highly recommend him!"
+      }
+    }
+  },
+  "chatbot": {
+    "title": "🤖 Vishal AI Assistant",
+    "placeholder": "Ask something...",
+    "thinking": "Thinking...",
+    "error": "Oops! Something went wrong. Try again.",
+    "send": "Send"
+  },
+  "Resume": "Resume",
+  "Analytics": "Analytics",
+  "greetings": {
+    "morning": "Good Morning",
+    "afternoon": "Good Afternoon",
+    "evening": "Good Evening",
+    "night": "Good Night"
+  },
+  "Playground": "Playground"
+
+}

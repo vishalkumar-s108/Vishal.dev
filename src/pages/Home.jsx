@@ -1,12 +1,30 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { FaReact, FaGitAlt, FaBootstrap } from "react-icons/fa";
-import { SiJavascript, SiTailwindcss, SiHtml5, SiCss3, SiPython, SiCplusplus, SiOpenai } from "react-icons/si";
+import {
+  SiJavascript,
+  SiTailwindcss,
+  SiHtml5,
+  SiCss3,
+  SiPython,
+  SiCplusplus,
+  SiOpenai,
+} from "react-icons/si";
 import { DiGithubBadge } from "react-icons/di";
 import { motion } from "framer-motion";
 import FadeInWrapper from "../components/FadeInWrapper";
-
+const getGreeting = (t) => {
+  const hour = new Date().getHours();
+  if (hour < 12) return "🌅 " + t("greetings.morning");
+  if (hour < 17) return "🌞 " + t("greetings.afternoon");
+  if (hour < 20) return "🌇 " + t("greetings.evening");
+  return "🌙 " + t("greetings.night");
+};
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="home"
@@ -31,24 +49,34 @@ export default function Home() {
 
         {/* Intro Text */}
         <FadeInWrapper delay={0.2}>
-          <h1 className="text-3xl sm:text-4xl font-bold">Hi, I'm Vishal</h1>
-          <p className="text-base sm:text-lg max-w-2xl">
-            A passionate Frontend Developer from Bihar. I love turning ideas into beautiful, responsive websites.
-          </p>
+          <h1 className="text-3xl sm:text-4xl font-bold">
+            {getGreeting(t)}, <span className="text-purple-400">{t("home.name")}</span>
+          </h1>
+          <p className="text-base sm:text-lg max-w-2xl">{t("home.description")}</p>
         </FadeInWrapper>
 
-        {/* Resume Button */}
-        <motion.a
-          href="/vishal-Resume.pdf"
-          download
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-full transition shadow-lg"
-        >
-          📄 Download Resume
-        </motion.a>
+    
+        {/* Buttons */}
+       <div className="flex flex-col sm:flex-row gap-4 mt-4">
+  <motion.a
+    href="/vishal-Resume.pdf"
+    download
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-full transition shadow-lg"
+  >
+    {t("home.resume")}
+  </motion.a>
 
-        {/* FRONTEND SKILLS */}
+  <Link
+    to="/resume"
+    className="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-2 rounded-full transition shadow-lg"
+  >
+    {t("home.timeline")}
+  </Link>
+</div>
+
+        {/* Frontend Skills */}
         <motion.div
           className="bg-[#1e1e2f] rounded-2xl shadow-xl p-6 w-full max-w-3xl mt-10"
           initial={{ opacity: 0, y: 40 }}
@@ -57,7 +85,7 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <h2 className="text-2xl font-bold text-orange-300 flex items-center gap-2 justify-center mb-6">
-            <FaReact className="text-cyan-400" /> Frontend Skills
+            <FaReact className="text-cyan-400" /> {t("home.frontendSkills")}
           </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -70,7 +98,7 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* OTHER SKILLS */}
+        {/* Other Skills */}
         <motion.div
           className="bg-[#1e1e2f] rounded-2xl shadow-xl p-6 w-full max-w-3xl mt-10"
           initial={{ opacity: 0, y: 40 }}
@@ -78,7 +106,9 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl font-bold text-green-300 text-center mb-6">Other Skills</h2>
+          <h2 className="text-2xl font-bold text-green-300 text-center mb-6">
+            {t("home.otherSkills")}
+          </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             <SkillCard icon={<FaGitAlt size={28} className="text-red-500" />} name="Git" />

@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import FadeInWrapper from "../components/FadeInWrapper";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -18,12 +21,12 @@ export default function Contact() {
     const { name, email, message } = formData;
 
     if (!name.trim() || !email.trim() || !message.trim()) {
-      setError("Please fill all fields.");
+      setError(t("contact.errorEmpty"));
       return;
     }
 
     if (!/\S+@\S+\.\S+/.test(email)) {
-      setError("Please enter a valid email.");
+      setError(t("contact.errorEmail"));
       return;
     }
 
@@ -36,17 +39,12 @@ export default function Contact() {
     <section id="contact" className="min-h-screen bg-gray-100 dark:bg-gray-900 px-6 py-16 text-gray-800 dark:text-white">
       <div className="max-w-4xl mx-auto">
         <FadeInWrapper>
-          <h2 className="text-4xl font-bold text-center mb-10">Contact Me</h2>
+          <h2 className="text-4xl font-bold text-center mb-10">{t("contact.title")}</h2>
         </FadeInWrapper>
 
-        {/* Contact Form */}
         {submitted ? (
-          <motion.p
-            className="text-green-500 text-center text-lg"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            Thanks! I'll get back to you soon.
+          <motion.p className="text-green-500 text-center text-lg" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            {t("contact.thanks")}
           </motion.p>
         ) : (
           <motion.form
@@ -63,7 +61,7 @@ export default function Contact() {
               <input
                 type="text"
                 name="name"
-                placeholder="Your Name"
+                placeholder={t("contact.namePlaceholder")}
                 className="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-700 dark:border-gray-600 outline-none"
                 value={formData.name}
                 onChange={handleChange}
@@ -72,7 +70,7 @@ export default function Contact() {
               <input
                 type="email"
                 name="email"
-                placeholder="Your Email"
+                placeholder={t("contact.emailPlaceholder")}
                 className="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-700 dark:border-gray-600 outline-none"
                 value={formData.email}
                 onChange={handleChange}
@@ -83,7 +81,7 @@ export default function Contact() {
             <textarea
               name="message"
               rows="5"
-              placeholder="Your Message"
+              placeholder={t("contact.messagePlaceholder")}
               className="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-700 dark:border-gray-600 outline-none"
               value={formData.message}
               onChange={handleChange}
@@ -94,7 +92,7 @@ export default function Contact() {
               type="submit"
               className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded shadow transition"
             >
-              Send Message
+              {t("contact.submitButton")}
             </button>
           </motion.form>
         )}
@@ -108,7 +106,7 @@ export default function Contact() {
           viewport={{ once: true }}
         >
           <FadeInWrapper>
-            <p className="text-lg">Or reach me directly:</p>
+            <p className="text-lg">{t("contact.reachOut")}</p>
           </FadeInWrapper>
 
           <div className="flex justify-center flex-wrap gap-6 text-base">

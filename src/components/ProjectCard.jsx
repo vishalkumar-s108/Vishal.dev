@@ -10,6 +10,7 @@ export default function ProjectCard({ title, description, image, github, live, t
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
+      
       <div className="w-full h-48 overflow-hidden rounded">
         <img
           src={image}

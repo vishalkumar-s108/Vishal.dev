@@ -1,17 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const Blog = () => {
+  const { t } = useTranslation();
+
   const blogPosts = [
     {
-      title: "🔧 How I Built My Portfolio",
-      content:
-        "I used React 19, Tailwind CSS, Framer Motion, and deployed on Netlify. Here’s how I approached the layout, animations, and responsiveness...",
+      title: t("blog.posts.portfolio.title"),
+      content: t("blog.posts.portfolio.content"),
     },
     {
-      title: "📚 What I'm Learning Now",
-      content:
-        "Currently diving deeper into TypeScript, APIs, and building full-stack MERN projects. Also exploring UI/UX best practices.",
+      title: t("blog.posts.learning.title"),
+      content: t("blog.posts.learning.content"),
     },
   ];
 
@@ -27,7 +28,7 @@ const Blog = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl font-bold mb-10 text-center"
         >
-          Blog / Insights
+          {t("blog.title")}
         </motion.h2>
 
         <div className="space-y-8">
