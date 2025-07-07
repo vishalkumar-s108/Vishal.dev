@@ -3,20 +3,23 @@
     "title": "About Me",
     "description": "Hi, I'm Vishal Kumar, a passionate frontend developer based in Bihar, India."
   },
-  "projects": {
-    "title": "My Projects",
-    "tags": {
-      "all": "All",
-      "frontend": "Frontend",
-      "fullstack": "Fullstack"
-    },
-    "portfolioTitle": "Portfolio Website",
-    "portfolioDesc": "My personal portfolio built using React and Tailwind CSS.",
-    "portfolioRole": "Designed and developed the complete frontend using React and Tailwind CSS.",
-    "taskifyTitle": "Taskify",
-    "taskifyDesc": "A frontend task manager app.",
-    "taskifyRole": "Built UI components and task management flow using React hooks."
+  
+"projects": {
+  "title": "My Projects",
+  "tags": {
+    "all": "All",
+    "frontend": "Frontend",
+    "fullstack": "Fullstack"
   },
+  "viewCaseStudy": "View Case Study",
+  "portfolioChallenge": "Build a personal portfolio to showcase all my React projects and resume.",
+  "portfolioSolution": "Created a modern site with React, Tailwind, and animated transitions.",
+  "portfolioResults": "Completed within 5 days, deployed on Netlify with 90+ Lighthouse score.",
+  "taskifyChallenge": "Make a sleek Kanban board with drag & drop task system.",
+  "taskifySolution": "Used Zustand and Framer Motion for dynamic drag/drop UI.",
+  "taskifyResults": "Got featured in dev communities, and improved UI/UX design skills."
+},
+
   "skills": {
     "title": "Skills",
     "frontend": "Frontend",

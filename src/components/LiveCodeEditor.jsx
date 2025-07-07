@@ -1,6 +1,6 @@
 import React from "react";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
-
+import Terminal from "../components/Terminal";
 const code = `
 function Hello() {
   return <h2>Hello Vishal.dev 🚀</h2>;
@@ -27,6 +27,10 @@ export default function LiveCodeEditor() {
           </div>
         </div>
       </LiveProvider>
+       <section id="terminal" className="py-16 px-4 bg-gray-900 text-white">
+      <h2 className="text-3xl font-bold mb-6 text-center">💻 Terminal</h2>
+      <Terminal />
+    </section>
     </div>
   );
 }

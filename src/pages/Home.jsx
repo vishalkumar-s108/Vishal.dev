@@ -15,6 +15,7 @@ import {
 import { DiGithubBadge } from "react-icons/di";
 import { motion } from "framer-motion";
 import FadeInWrapper from "../components/FadeInWrapper";
+
 const getGreeting = (t) => {
   const hour = new Date().getHours();
   if (hour < 12) return "🌅 " + t("greetings.morning");

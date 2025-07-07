@@ -17,7 +17,7 @@ import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NDAProjects from "./pages/NDAProjects";
 import LiveCodeEditor from "./components/LiveCodeEditor";
-
+import Analytics from './pages/Analytics';
 function App() {
   return (
     <>
@@ -25,6 +25,7 @@ function App() {
 
       <Routes>
         <Route path="*" element={<NotFound />} />
+<Route path="/analytics" element={<Analytics />} />
 
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

@@ -121,6 +121,7 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
+{/* <Link to="/analytics" className="nav-link">Analytics</Link> */}
 
             {/* 🌙 Mobile Dark Mode Toggle */}
             <button

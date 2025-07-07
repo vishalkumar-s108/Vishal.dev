@@ -4,7 +4,8 @@ import { FaReact } from "react-icons/fa";
 import { SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-
+import ProjectModal from "../components/ProjectModal";
+import AnalyticsDashboard from "../components/AnalyticsDashboard";
 // 🔹 Project Data
 const projects = [
   {
@@ -13,10 +14,16 @@ const projects = [
     image: "/image.png",
     description: "projects.portfolioDesc",
     github: "https://github.com/vishalkumar-s108",
-    live: "https://prismatic-fenglisu-bb6d14.netlify.app/",
+    live: "https://vishal-s.netlify.app/",
     tech: [FaReact, SiTailwindcss],
     tags: ["Frontend"],
     role: "projects.portfolioRole",
+    challenge: "projects.portfolioChallenge",
+    solution: "projects.portfolioSolution",
+    techStack: "React, Tailwind CSS, Vite",
+    results: "projects.portfolioResults",
+    videoUrl: "https://img.youtube.com/vi/ORTKhhgHoWQ"
+
   },
   {
     id: 2,
@@ -28,12 +35,19 @@ const projects = [
     tech: [FaReact],
     tags: ["Frontend"],
     role: "projects.taskifyRole",
-  },
+    challenge: "projects.taskifyChallenge",
+    solution: "projects.taskifySolution",
+    techStack: "React, Tailwind CSS, Zustand",
+    results: "projects.taskifyResults"
+  }
 ];
 
 const Projects = () => {
   const { t } = useTranslation();
   const [selectedTag, setSelectedTag] = useState("All");
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const closeModal = () => setSelectedProject(null);
 
   const filteredProjects =
     selectedTag === "All"
@@ -90,9 +104,31 @@ const Projects = () => {
             title={t(project.title)}
             description={t(project.description)}
             role={t(project.role)}
+            videoUrl={project.videoUrl} // ✅ THIS LINE IS ESSENTIAL
+            onViewCaseStudy={() => setSelectedProject(project)}
           />
         ))}
       </motion.div>
+
+      {/* 🔹 Case Study Modal */}
+      {selectedProject && (
+        <ProjectModal
+          isOpen={!!selectedProject}
+          onClose={closeModal}
+          project={{
+            ...selectedProject,
+            title: t(selectedProject.title),
+            subtitle: selectedProject.subtitle || "",
+            challenge: t(selectedProject.challenge),
+            solution: t(selectedProject.solution),
+            results: t(selectedProject.results)
+          }}
+        />
+      )}
+      <section id="analytics" className="py-20">
+  <AnalyticsDashboard />
+</section>
+
     </section>
   );
 };
